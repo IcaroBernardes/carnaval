@@ -1,16 +1,23 @@
-Package: carnaval
 Type: Package
-Title: What the Package Does (Title Case)
+Package: carnaval
+Title: Access datasets of Brazilian Samba Schools and color palettes in R
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
-Encoding: UTF-8
-LazyData: true
+Authors@R: 
+    person("Icaro Bernardes", "dos Santos Coutinho", , "icaro@bitanalytics.dev.br", role = c("aut", "cre"))
+Description: Download data on Samba Schools of Brazil. The data spans
+    almost a century of carnaval competitions scores, judges, rules and so
+    on.  Palettes based on the Samba Schools colors are provided as well.
+License: MIT + file LICENSE
+URL: https://github.com/IcaroBernardes/carnaval
+BugReports: https://github.com/IcaroBernardes/carnaval/issues
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
-URL: https://github.com/IcaroBernardes/carnaval
-BugReports: https://github.com/IcaroBernardes/carnaval/issues
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    dplyr,
+    glue,
+    purrr,
+    rlang
+RoxygenNote: 7.2.2
