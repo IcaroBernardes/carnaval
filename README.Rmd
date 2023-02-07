@@ -1,0 +1,45 @@
+---
+output:
+    md_document:
+      variant: gfm
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "tools/README-",
+  warning = FALSE
+)
+```
+
+<!-- badges: start -->
+[![Lifecycle: experimental](https://lifecycle.r-lib.org/articles/figures/lifecycle-experimental.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+<!-- badges: end -->
+
+Carnaval is the biggest street feast of Brazil. It happens all over the country in a kaleidoscope of sound and color. One of the forms it takes is the yearly competition between Samba Schools in Rio. The `carnaval` R package provides easy access to both datasets on the competition and color palettes inspired by the Samba Schools.
+
+The package is under development and has these functions:
+
+- get_scores: Obtain scores of samba schools by year, school and/or criterion.
+
+## Installation and loading
+
+Install `carnaval` from [GitHub](https://github.com/IcaroBernardes/carnaval) as follows: 
+
+```{r, eval=FALSE}
+if(!require(devtools)) install.packages("devtools")
+devtools::install_github("IcaroBernardes/carnaval")
+```
+
+## Examples
+
+```{r, warning=FALSE, message=FALSE}
+library(carnaval)
+
+# Prints a table that shows the scores of Portela and
+# Estácio de Sá on the parades of 1968 and 1970 on all criterions
+get_scores(years = c(1968, 1970), schools = c("portela", "Estácio de Sá"))
+```
