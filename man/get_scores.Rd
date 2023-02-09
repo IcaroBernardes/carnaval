@@ -7,12 +7,12 @@
 get_scores(years, schools = "all", criterions = "all")
 }
 \arguments{
-\item{years}{\strong{numeric:} which parade years to keep.}
+\item{years}{\strong{numeric:} which years of parade to show. almost all years since 1968 are available.}
 
-\item{schools}{\strong{character:} which samba schools to keep. case
+\item{schools}{\strong{character:} which samba schools to show. Case
 insensitive.}
 
-\item{criterions}{\strong{character:} which evaluation criteria to keep. case
+\item{criterions}{\strong{character:} which evaluation criteria to show. Case
 insensitive.}
 }
 \value{

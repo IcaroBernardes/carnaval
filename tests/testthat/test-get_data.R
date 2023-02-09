@@ -1,4 +1,4 @@
-# Tests for "get_scores()" ##############
+# Tests for get_scores() ##############
 test_that("arguments have the correct class", {
   ## "years" argument
   expect_error(
