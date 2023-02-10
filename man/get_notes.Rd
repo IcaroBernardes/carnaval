@@ -7,14 +7,17 @@
 get_notes(years)
 }
 \arguments{
-\item{years}{\strong{numeric:} which years of notes to show. almost all years since 1968 are available.}
+\item{years}{\strong{numeric:} which years of notes to show. almost all years
+since 1968 are available.}
 }
 \value{
-A tibble. Its columns are \code{info} (notes) and
-  \code{year} (parade year). Each line corresponds to all notes made in a given year.
+A tibble. Its columns are \code{info} (notes) and \code{year}
+  (parade year). Each line corresponds to all notes made in a given year.
 }
 \description{
-\code{get_notes()} returns a tibble of notes about the evaluation process of each year competition. They may explain such things as: changes in the rules, substitution of judges or absence of demotion of schools.
+\code{get_notes()} returns a tibble of notes about the evaluation process of
+each year competition. They may explain such things as: changes in the rules,
+substitution of judges or absence of demotion of schools.
 }
 \examples{
 # Prints a table that shows the notes on the evaluation process of 1970 and 1980

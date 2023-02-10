@@ -270,8 +270,12 @@ scores <- scores |>
   dplyr::bind_rows(tables_2002) |>
   dplyr::arrange(year)
 
-### Converts the scores to numeric
+## Converts the scores to numeric
 scores <- scores |> dplyr::mutate(score = as.numeric(score))
+
+## Rearranges the columns
+scores <- scores |>
+  dplyr::select(school, year, score, criteria, judge_name, judge_number)
 
 ## Saves the data ###########
 saveRDS(scores, "tools/scores.RDS")
@@ -501,12 +505,20 @@ parade <- parade |>
 parade <- parade |>
   dplyr::select(dplyr::starts_with(c("school", "parade")), theme, year)
 
+## Recovering non-integer parts of the scores
+## (the results page of each school only has integer scores)
+sums <- readRDS("tools/sums.RDS") |>
+  dplyr::select(school, year, total) |>
+  dplyr::mutate(total = as.numeric(total))
+parade <- parade |>
+  dplyr::left_join(sums) |>
+  dplyr::mutate(school_points = ifelse(is.na(total), school_points, total)) |>
+  dplyr::select(-total) |>
+  dplyr::rename("school_total" = "school_points") |>
+  dplyr::relocate(year, .after = "school")
+
 ## Saves the data ###########
 saveRDS(parade, "tools/parade.RDS")
-
-
-
-
 
 # X. Updates the releases of the package ###########
 piggyback::pb_upload(

@@ -7,7 +7,8 @@
 get_scores(years, schools = "all", criterions = "all")
 }
 \arguments{
-\item{years}{\strong{numeric:} which years of parade to show. almost all years since 1968 are available.}
+\item{years}{\strong{numeric:} which years of parade to show. almost all
+years since 1968 are available.}
 
 \item{schools}{\strong{character:} which samba schools to show. Case
 insensitive.}
@@ -17,9 +18,9 @@ insensitive.}
 }
 \value{
 A tibble. Its columns are \code{school} (samba school name),
-  \code{judge_number} (judge id), \code{score} (samba school score),
+  \code{year} (parade year), \code{score} (samba school score),
   \code{criteria} (evaluation criteria), \code{judge_name} (judge name), and
-  \code{year} (parade year). Each line corresponds to a score given by a
+  \code{judge_number} (judge id). Each line corresponds to a score given by a
   judge to a samba school on a criteria in a given year.
 }
 \description{
