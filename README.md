@@ -12,7 +12,8 @@ Carnaval is the biggest street feast of Brazil. It happens all over the
 country in a kaleidoscope of sound and color. One of its many shapes is
 the yearly competition between Samba Schools in Rio. The `carnaval` R
 package provides easy access to both datasets on the competition and
-color palettes inspired by the carioca Samba Schools.
+color palettes inspired by the carioca Samba Schools. The package
+focuses on the main league of the competition (“Grupo Especial”).
 
 Currently, all data comes from the [Galeria do
 Samba](https://galeriadosamba.com.br) portal. If you like this package,

@@ -520,6 +520,8 @@ parade <- parade |>
 ## Saves the data ###########
 saveRDS(parade, "tools/parade.RDS")
 
+
+
 # X. Updates the releases of the package ###########
 piggyback::pb_upload(
   file = list.files("tools", pattern = ".RDS", full.names = TRUE),
