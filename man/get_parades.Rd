@@ -15,19 +15,39 @@ insensitive.}
 }
 \value{
 A tibble. Its columns are \code{school} (samba school name),
-  \code{year} (parade year), \code{school_total} (samba school total score),
-  \code{school_rank} (samba school parade rank), \code{school_notes} (notes
-  on the samba school parade), \code{parade_location} (samba school parade
-  location), \code{parade_date} (samba school parade date),
-  \code{parade_order} (samba school parade order), \code{parade_manager}
-  (parade manager), and \code{theme} (samba school parade theme). Each line
-  corresponds to the total scores and parade info of a school in a given
-  year.
+\code{year} (parade year), \code{school_total} (samba school total score),
+\code{school_rank} (samba school parade rank), \code{school_remarks}
+(remarks on the samba school parade), \code{parade_location} (samba school
+parade location), \code{parade_date} (samba school parade date),
+\code{parade_order} (samba school parade order), \code{parade_manager}
+(parade manager), and \code{theme} (samba school parade theme). Each line
+corresponds to the total scores and parade info of a school in a given
+year.
 }
 \description{
 \code{get_parades()} returns a tibble of total scores of samba schools. It
 can be filtered by \code{year} and/or \code{school}
 }
+\section{About this data}{
+
+
+This tibble has some confusing entries. One of the reasons: the competition
+changed a lot in the course of decades as perceived by the fluctuating
+number of schools, years where multiple competitions were held, and
+competitions with ties in the rank (when there was no criteria to break
+them).
+
+Another reason are plain errors. Many entries have missing data. Some are
+highlighted as "Enredo não registrado" or "Resultado do desfile não
+registrado". Total scores may diverge from the final rank because of
+assessment errors.
+
+These issues are rare or have low severity, meaning that the data is
+reliable. Although, one should pay attention to the parades remarks in the
+dataset itself and those from \code{\link{get_remarks()}} in order to get a
+better grasp of the happenings of a given year.
+}
+
 \examples{
 # Prints a table that shows the total scores and parade info of Portela and
 # Estácio de Sá on the parades of 1968 and 1970

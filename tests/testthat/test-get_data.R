@@ -98,27 +98,27 @@ test_that("arguments have available data", {
   )
 })
 
-# Tests for get_notes() ##############
+# Tests for get_remarks() ##############
 test_that("arguments have the correct class", {
   ## "years" argument
   expect_error(
-    get_notes(years = "1"),
+    get_remarks(years = "1"),
     '"years" has to be a "numeric" or similar'
   )
   expect_error(
-    get_notes(years = c(1, "2")),
+    get_remarks(years = c(1, "2")),
     '"years" has to be a "numeric" or similar'
   )
   expect_error(
-    get_notes(years = Sys.Date()),
+    get_remarks(years = Sys.Date()),
     '"years" has to be a "numeric" or similar'
   )
   expect_error(
-    get_notes(years = NA),
+    get_remarks(years = NA),
     '"years" has to be a "numeric" or similar'
   )
   expect_error(
-    get_notes(years = NULL),
+    get_remarks(years = NULL),
     '"years" has to be a "numeric" or similar'
   )
 })
@@ -126,7 +126,7 @@ test_that("arguments have the correct class", {
 test_that("arguments have available data", {
   ## "years" argument
   expect_warning(
-    get_notes(years = 1984),
+    get_remarks(years = 1984),
     "Your selection does not contains: 1984"
   )
 })

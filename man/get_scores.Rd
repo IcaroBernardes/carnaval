@@ -18,15 +18,24 @@ insensitive.}
 }
 \value{
 A tibble. Its columns are \code{school} (samba school name),
-  \code{year} (parade year), \code{score} (samba school score),
-  \code{criteria} (evaluation criteria), \code{judge_name} (judge name), and
-  \code{judge_number} (judge id). Each line corresponds to a score given by a
-  judge to a samba school on a criteria in a given year.
+\code{year} (parade year), \code{score} (samba school score),
+\code{criteria} (evaluation criteria), \code{judge_name} (judge name), and
+\code{judge_number} (judge id). Each line corresponds to a score given by a
+judge to a samba school on a criteria in a given year.
 }
 \description{
 \code{get_scores()} returns a tibble of scores of samba schools. It can be
 filtered by \code{year}, \code{school} and/or \code{criterion}
 }
+\section{About this data}{
+
+
+The competition changed a lot through the years, thus the list of schools
+and criteria, as well as the range of scores varies between years. The
+remarks from \code{\link[=get_remarks]{get_remarks()}} are a good source for better
+understanding the dynamics of the competition.
+}
+
 \examples{
 # Prints a table that shows the scores of Portela and
 # Estácio de Sá on the parades of 1968 and 1970 on all criterions

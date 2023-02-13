@@ -1,7 +1,7 @@
 # 0. Downloading current versions of the released data ###########
 piggyback::pb_download(
   file = NULL,
-  dest = "tools",
+  dest = "tools/releases",
   tag = "data_releases"
 )
 
@@ -77,7 +77,7 @@ scrap_scores <- function(year) {
     rvest::html_elements("table.margin-bottom-3 > tbody") |>
     rvest::html_table(header = FALSE)
 
-  ### Deletes notes below the tables
+  ### Deletes remarks below the tables
   tables <- tables |>
     purrr::map(function(x) {
       x |> dplyr::slice_head(n = -1)
@@ -182,7 +182,7 @@ scores <- years |>
   purrr::map_dfr(function(x) {x$result})
 
 ## Verifies if the scrap was unsuccessful for any year ###########
-## NOTES (FEB/2022):
+## remarks (FEB/2022):
 ## 1984 has a broken link (impossible to get)
 ## 2000 have some missing judges names (solved in the code)
 ## 2002 have some missing judges names (scrapped below)
@@ -278,10 +278,10 @@ scores <- scores |>
   dplyr::select(school, year, score, criteria, judge_name, judge_number)
 
 ## Saves the data ###########
-saveRDS(scores, "tools/scores.RDS")
+saveRDS(scores, "tools/releases/scores.RDS")
 
-# 4. Getting notes and sums of scores ###########
-## Scrap notes and sums tables ###########
+# 4. Getting remarks and sums of scores ###########
+## Scrap remarks and sums tables ###########
 scrap_sums <- function(year) {
 
   ### Gets the URL
@@ -299,8 +299,8 @@ scrap_sums <- function(year) {
     rvest::html_table(header = FALSE) |>
     dplyr::slice(-1L)
 
-  ### Gets the notes
-  notes <- sums |>
+  ### Gets the remarks
+  remarks <- sums |>
     dplyr::filter(stringr::str_detect(X1, "[:digit:]ª", negate = TRUE)) |>
     dplyr::select(X1)
 
@@ -312,10 +312,10 @@ scrap_sums <- function(year) {
 
   ### Adds the year
   sums <- sums |> dplyr::mutate(year = year)
-  notes <- notes |> dplyr::mutate(year = year)
+  remarks <- remarks |> dplyr::mutate(year = year)
 
   ### Creates a list that contains the objects
-  tables <- list(sums = sums, notes = notes)
+  tables <- list(sums = sums, remarks = remarks)
 
   return(tables)
 
@@ -335,26 +335,37 @@ sums <- years |>
   purrr::keep(function(x) {is.null(x$error)}) |>
   purrr::map(function(x) {x$result})
 
-## Separates notes and sums
-notes <- sums |> purrr::map_dfr(function(x) {x$notes})
+## Separates remarks and sums
+remarks <- sums |> purrr::map_dfr(function(x) {x$remarks})
 sums <- sums |> purrr::map_dfr(function(x) {x$sums})
 
-## Cleans the notes of the prefix and renames the variables
-notes <- notes |>
+## Cleans the remarks of the prefix and renames the variables
+remarks <- remarks |>
   dplyr::rename("info" = "X1") |>
   dplyr::mutate(info = stringr::str_remove(info, "Notas sobre a (A|a)puração:"),
                 info = stringr::str_remove(info, "(-|–)"),
                 info = stringr::str_trim(info))
 
 ## Verifies if the scrap was unsuccessful for any year ###########
-## NOTES (FEB/2022):
+## remarks (FEB/2022):
 ## 1984 has a broken link (impossible to get)
 itsokay <- unique(sums$year)
 notokay <- setdiff(years, itsokay)
 
+## Confirms the integrity of the data ###########
+### Tests if all main league schools have an entry
+### for every category and judge in every year
+sum(is.na(scores$score))
+scores |>
+  dplyr::group_by(year, judge_number, criteria) |>
+  dplyr::summarise(n = dplyr::n_distinct(school)) |>
+  dplyr::group_by(year) |>
+  dplyr::summarise(n = dplyr::n_distinct(n)) |>
+  dplyr::arrange(desc(n))
+
 ## Saves the data ###########
 saveRDS(sums, "tools/sums.RDS")
-saveRDS(notes, "tools/notes.RDS")
+saveRDS(remarks, "tools/releases/remarks.RDS")
 
 # 5. Getting parade info ###########
 ## Scraps parades by school ###########
@@ -466,7 +477,7 @@ parade <- years |>
   purrr::map_dfr(function(x) {x$result})
 
 ## Verifies if the scrap was unsuccessful for any year ###########
-## NOTES (FEB/2022):
+## remarks (FEB/2022):
 ## no problems whatsoever
 itsokay <- unique(parade$year)
 notokay <- setdiff(years, itsokay)
@@ -499,7 +510,7 @@ parade <- parade |>
                 result = stringr::str_remove(result, "[:digit:]+ª colocada (no|do)"),
                 school_rank = stringr::str_extract(school_rank, "[:digit:]+"),
                 school_rank = as.numeric(school_rank),
-                school_notes = stringr::str_trim(result))
+                school_remarks = stringr::str_trim(result))
 
 ## Rearranges the columns
 parade <- parade |>
@@ -517,13 +528,22 @@ parade <- parade |>
   dplyr::rename("school_total" = "school_points") |>
   dplyr::relocate(year, .after = "school")
 
+## Confirms the integrity of the data ###########
+### Tests if the rank has no ties in any year
+ties <- parade |>
+  dplyr::filter(!is.na(school_rank)) |>
+  dplyr::group_by(year, parade_manager) |>
+  dplyr::summarise(ties = (dplyr::n_distinct(school_rank) != dplyr::n())) |>
+  dplyr::filter(ties)
+
 ## Saves the data ###########
-saveRDS(parade, "tools/parade.RDS")
+saveRDS(parade, "tools/releases/parades.RDS")
+
 
 
 
 # X. Updates the releases of the package ###########
 piggyback::pb_upload(
-  file = list.files("tools", pattern = ".RDS", full.names = TRUE),
+  file = list.files("tools/releases", pattern = ".RDS", full.names = TRUE),
   tag = "data_releases"
 )

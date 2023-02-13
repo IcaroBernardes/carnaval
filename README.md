@@ -23,11 +23,22 @@ please help them keeping their project afloat:
 The package is under development and has these functions:
 
 - get_scores: Obtain scores of samba schools by year, school and/or
-  criterion. Data goes back since 1968.
-- get_notes: Obtain notes on the evaluation process. Data goes back
-  since 1968.
+  criterion. Data goes back since 1968;
+
+- get_remarks: Obtain remarks on the evaluation process. Data goes back
+  since 1968;
+
 - get_parades: Obtain total scores (and more) of samba schools by year
-  and/or school. Data goes back since 1932.
+  and/or school. Data goes back since 1932;
+
+- display_all: Plots the available Samba School palettes;
+
+- scale_ARG_rio_TYPE: Family of ggplot functions for plotting with Samba
+  School palettes. Can be used to fill or color/colour (ARG) and for
+  discrete (d) or continuous (c) scales (TYPE);
+
+- colorblind_friendly: Indicates whether a palette is friendly towards
+  some types of colorblindness.
 
 ## Installation and loading
 
