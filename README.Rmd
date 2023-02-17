@@ -66,10 +66,11 @@ get_scores(years = c(1968, 1970), schools = c("portela", "Estácio de Sá"))
 ### Beija Flor de Nilópolis
 
 <img src="tools/palettes/Beija_Flor.png" width="40%"/> <img src="tools/shields/Beija_Flor.jpg" width="40%"/>
-- Friendly towards **deuteranopia** and **protanopia**
+
+-   Friendly towards **deuteranopia** and **protanopia**
 
 ------------------------------------------------------------------------
 
 ### Acadêmicos do Grande Rio
 
-<img src="tools/palettes/Grande_Rio.png" width="40%"/> <img src="tools/shields/Grande_Rio.jpg" width="40%"/>
+<img src="tools/palettes/Grande_Rio.png" width="30%"/> <img src="tools/shields/Grande_Rio.jpg" width="30%"/>
