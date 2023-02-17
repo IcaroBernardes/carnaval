@@ -80,12 +80,9 @@ get_scores(years = c(1968, 1970), schools = c("portela", "Estácio de Sá"))
 
 ### Beija Flor de Nilópolis
 
-<img src="tools/palettes/Beija_Flor.png" width="40%" align="left"/>
-<img src="tools/shields/Beija_Flor.jpg" width="40%" align="right"/>
-
-<div style="clear:both;">
-
-</div>
+<img src="tools/palettes/Beija_Flor.png" width="45%" align="left"/>
+<img src="tools/shields/Beija_Flor.jpg" width="45%" align="right"/>
+<br clear="both"/>
 
 - Friendly towards **deuteranopia** and **protanopia**
 
@@ -93,5 +90,128 @@ get_scores(years = c(1968, 1970), schools = c("portela", "Estácio de Sá"))
 
 ### Acadêmicos do Grande Rio
 
-<img src="tools/palettes/Grande_Rio.png" width="30%"/>
-<img src="tools/shields/Grande_Rio.jpg" width="30%"/>
+<img src="tools/palettes/Grande_Rio.png" width="45%" align="left"/>
+<img src="tools/shields/Grande_Rio.jpg" width="45%" align="right"/>
+<br clear="both"/>
+
+- Friendly towards **protanopia** and **tritanopia**
+
+------------------------------------------------------------------------
+
+### Imperatriz Leopoldinense
+
+<img src="tools/palettes/Imperatriz_Leopoldinense.png" width="45%" align="left"/>
+<img src="tools/shields/Imperatriz_Leopoldinense.jpg" width="45%" align="right"/>
+<br clear="both"/>
+
+- Friendly towards **deuteranopia** and **tritanopia**
+
+------------------------------------------------------------------------
+
+### Império Serrano
+
+<img src="tools/palettes/Imperio_Serrano.png" width="45%" align="left"/>
+<img src="tools/shields/Imperio_Serrano.jpg" width="45%" align="right"/>
+<br clear="both"/>
+
+- Friendly towards **deuteranopia**, **protanopia** and **tritanopia**
+
+------------------------------------------------------------------------
+
+### Estação Primeira de Mangueira
+
+<img src="tools/palettes/Mangueira.png" width="45%" align="left"/>
+<img src="tools/shields/Mangueira.jpg" width="45%" align="right"/>
+<br clear="both"/>
+
+- Friendly towards **deuteranopia**, **protanopia** and **tritanopia**
+
+------------------------------------------------------------------------
+
+### Mocidade Independente de Padre Miguel
+
+<img src="tools/palettes/Padre_Miguel.png" width="45%" align="left"/>
+<img src="tools/shields/Padre_Miguel.jpg" width="45%" align="right"/>
+<br clear="both"/>
+
+- Friendly towards **deuteranopia** and **tritanopia**
+
+------------------------------------------------------------------------
+
+### Paraíso do Tuiuti
+
+<img src="tools/palettes/Paraiso_Tuiuti.png" width="45%" align="left"/>
+<img src="tools/shields/Paraiso_Tuiuti.jpg" width="45%" align="right"/>
+<br clear="both"/>
+
+- Friendly towards **deuteranopia**, **protanopia** and **tritanopia**
+
+------------------------------------------------------------------------
+
+### Portela
+
+<img src="tools/palettes/Portela.png" width="45%" align="left"/>
+<img src="tools/shields/Portela.jpg" width="45%" align="right"/>
+<br clear="both"/>
+
+- Friendly towards **deuteranopia**, **protanopia** and **tritanopia**
+
+------------------------------------------------------------------------
+
+### Acadêmicos do Salgueiro
+
+<img src="tools/palettes/Salgueiro.png" width="45%" align="left"/>
+<img src="tools/shields/Salgueiro.jpg" width="45%" align="right"/>
+<br clear="both"/>
+
+- Friendly towards **deuteranopia**, **protanopia** and **tritanopia**
+
+------------------------------------------------------------------------
+
+### São Clemente
+
+<img src="tools/palettes/Sao_Clemente.png" width="45%" align="left"/>
+<img src="tools/shields/Sao_Clemente.jpg" width="45%" align="right"/>
+<br clear="both"/>
+
+- Friendly towards **deuteranopia**, **protanopia** and **tritanopia**
+
+------------------------------------------------------------------------
+
+### Unidos da Tijuca
+
+<img src="tools/palettes/Tijuca.png" width="45%" align="left"/>
+<img src="tools/shields/Tijuca.jpg" width="45%" align="right"/>
+<br clear="both"/>
+
+- Friendly towards **deuteranopia**, **protanopia** and **tritanopia**
+
+------------------------------------------------------------------------
+
+### União da Ilha do Governador
+
+<img src="tools/palettes/Uniao_Ilha.png" width="45%" align="left"/>
+<img src="tools/shields/Uniao_Ilha.jpg" width="45%" align="right"/>
+<br clear="both"/>
+
+- Friendly towards **deuteranopia**, **protanopia** and **tritanopia**
+
+------------------------------------------------------------------------
+
+### Unidos de Vila Isabel
+
+<img src="tools/palettes/Vila_Isabel.png" width="45%" align="left"/>
+<img src="tools/shields/Vila_Isabel.jpg" width="45%" align="right"/>
+<br clear="both"/>
+
+- Friendly towards **deuteranopia**
+
+------------------------------------------------------------------------
+
+### Unidos do Viradouro
+
+<img src="tools/palettes/Viradouro.png" width="45%" align="left"/>
+<img src="tools/shields/Viradouro.jpg" width="45%" align="right"/>
+<br clear="both"/>
+
+- Friendly towards **deuteranopia**, **protanopia** and **tritanopia**
