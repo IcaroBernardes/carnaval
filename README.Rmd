@@ -67,7 +67,7 @@ get_scores(years = c(1968, 1970), schools = c("portela", "Estácio de Sá"))
 
 <img src="tools/palettes/Beija_Flor.png" width="40%" align="left"/>
 <img src="tools/shields/Beija_Flor.jpg" width="40%" align="right"/>
-<div clear="both"></div>
+<div style="clear:both;"></div>
 
 -   Friendly towards **deuteranopia** and **protanopia**
 
