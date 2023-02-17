@@ -6,6 +6,7 @@
 
 [![Lifecycle:
 experimental](https://lifecycle.r-lib.org/articles/figures/lifecycle-experimental.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+
 <!-- badges: end -->
 
 Carnaval is the biggest street feast of Brazil. It happens all over the
@@ -74,3 +75,8 @@ get_scores(years = c(1968, 1970), schools = c("portela", "Estácio de Sá"))
 #> 10 Estácio de Sá  1968     2 DESFILE NÃO INTERROMPIDO Sandra Dicken      judge2 
 #> # … with 42 more rows, and abbreviated variable name ¹​judge_number
 ```
+
+## Palettes
+
+<img src="tools/palettes/Beija_Flor.png" width="50%"/>
+<img src="tools/shields/Beija_Flor.jpg" width="50%"/>

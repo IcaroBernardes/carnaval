@@ -11,13 +11,13 @@ get_remarks(years)
 years since 1968 are available.}
 }
 \value{
-A tibble. Its columns are \code{info} (remarks) and \code{year}
-(parade year). Each line corresponds to all remarks made in a given year.
+A tibble. Its columns are \code{info} (remarks) and \code{year} (parade year).
+Each line corresponds to all remarks made in a given year.
 }
 \description{
-\code{get_remarks()} returns a tibble of remarks about the evaluation process
-of each year competition. They may explain such things as: changes in the
-rules, substitution of judges or absence of demotion of schools.
+\code{get_remarks()} returns a tibble of remarks about the evaluation process of
+each year competition. They may explain such things as: changes in the rules,
+substitution of judges or absence of demotion of schools.
 }
 \examples{
 # Prints a table that shows the remarks on the evaluation process of 1970 and 1980

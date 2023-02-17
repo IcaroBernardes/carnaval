@@ -7,7 +7,7 @@ Authors@R:
 Description: Download data on Samba Schools of Brazil. The data spans
     almost a century of carnaval competitions scores, judges, rules and so
     on.  Palettes based on the Samba Schools colors are provided as well.
-License: CC0
+License: MIT + file LICENSE
 URL: https://github.com/IcaroBernardes/carnaval
 BugReports: https://github.com/IcaroBernardes/carnaval/issues
 Imports: 

@@ -14,19 +14,18 @@ years since 1932 are available.}
 insensitive.}
 }
 \value{
-A tibble. Its columns are \code{school} (samba school name),
-\code{year} (parade year), \code{school_total} (samba school total score),
-\code{school_rank} (samba school parade rank), \code{school_remarks}
-(remarks on the samba school parade), \code{parade_location} (samba school
-parade location), \code{parade_date} (samba school parade date),
-\code{parade_order} (samba school parade order), \code{parade_manager}
-(parade manager), and \code{theme} (samba school parade theme). Each line
-corresponds to the total scores and parade info of a school in a given
-year.
+A tibble. Its columns are \code{school} (samba school name), \code{year}
+(parade year), \code{school_total} (samba school total score), \code{school_rank}
+(samba school parade rank), \code{school_remarks} (remarks on the samba school
+parade), \code{parade_location} (samba school parade location), \code{parade_date}
+(samba school parade date), \code{parade_order} (samba school parade order),
+\code{parade_manager} (parade manager), and \code{theme} (samba school parade theme).
+Each line corresponds to the total scores and parade info of a school in a
+given year.
 }
 \description{
-\code{get_parades()} returns a tibble of total scores of samba schools. It
-can be filtered by \code{year} and/or \code{school}
+\code{get_parades()} returns a tibble of total scores of samba schools. It can be
+filtered by \code{year} and/or \code{school}
 }
 \section{About this data}{
 
@@ -44,8 +43,8 @@ assessment errors.
 
 These issues are rare or have low severity, meaning that the data is
 reliable. Although, one should pay attention to the parades remarks in the
-dataset itself and those from \code{\link{get_remarks()}} in order to get a
-better grasp of the happenings of a given year.
+dataset itself and those from \code{\link[=get_remarks]{get_remarks()}} in order to get a better
+grasp of the happenings of a given year.
 }
 
 \examples{

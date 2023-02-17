@@ -6,7 +6,7 @@
 #' are: `Beija_Flor`, `Grande_Rio`, `Imperatriz_Leopoldinense`,
 #' `Imperio_Serrano`, `Mangueira`, `Padre_Miguel`, `Paraiso_Tuiuti`, `Portela`,
 #' `Salgueiro`, `Sao_Clemente`, `Tijuca`, `Uniao_Ilha`, `Vila_Isabel`,
-#' `Viradouro.` Use [rio.paletter] to construct palettes.
+#' `Viradouro.` Use [rio_paletter] to construct palettes.
 #'
 #' @export
 RioPalettes <- list(
@@ -82,27 +82,27 @@ RioPalettes <- list(
 #'   Default is FALSE.
 #' @return A vector of colors.
 #' @examples
-#' rio.paletter("Beija_Flor")
+#' rio_paletter("Beija_Flor")
 #'
-#' rio.paletter("Grande_Rio", direction=-1)
+#' rio_paletter("Grande_Rio", direction=-1)
 #'
-#' rio.paletter("Sao_Clemente", 4, override.order=TRUE)
+#' rio_paletter("Sao_Clemente", 4, override.order=TRUE)
 #'
 #' library(ggplot2)
 #' ggplot(data=iris, aes(x=Species, y=Petal.Length, fill=Species)) +
 #' geom_violin() +
-#' scale_fill_manual(values=rio.paletter("Imperio_Serrano", 3))
+#' scale_fill_manual(values=rio_paletter("Imperio_Serrano", 3))
 #'
 #' ggplot(data=iris, aes(x=Sepal.Length, y=Sepal.Width, color=Species)) +
 #' geom_point(size=2) +
-#' scale_color_manual(values=rio.paletter("Mangueira", 3))
+#' scale_color_manual(values=rio_paletter("Mangueira", 3))
 #'
 #' ggplot(data=iris, aes(x=Species, y=Sepal.Width, color=Sepal.Width)) +
 #' geom_point(size=3) +
-#' scale_color_gradientn(colors=rio.paletter("Padre_Miguel"))
+#' scale_color_gradientn(colors=rio_paletter("Padre_Miguel"))
 #' @keywords colors
 #' @export
-rio.paletter <- function(palette_name, n, type = c("discrete", "continuous"), direction = c(1, -1), override.order=FALSE) {
+rio_paletter <- function(palette_name, n, type = c("discrete", "continuous"), direction = c(1, -1), override.order=FALSE) {
 
   `%notin%` <- Negate(`%in%`)
 
@@ -248,7 +248,7 @@ colorblind_friendly <- function(palette_name, type = "all"){
 #' scale_color_rio_d("Mangueira")
 #' @export
 scale_color_rio_d <- function(palette_name, direction=1, override.order=FALSE, ...){
-  rio.paletter.disc <- function(palette_name, direction = c(1, -1), override.order=FALSE) {
+  rio_paletter_disc <- function(palette_name, direction = c(1, -1), override.order=FALSE) {
 
     `%notin%` <- Negate(`%in%`)
     palette <- RioPalettes[[palette_name]]
@@ -273,7 +273,7 @@ scale_color_rio_d <- function(palette_name, direction=1, override.order=FALSE, .
   }
 
   discrete_scale(aesthetics = "colour", scale_name="rio_d",
-                 palette = rio.paletter.disc(palette_name=palette_name, direction=direction, override.order=override.order),
+                 palette = rio_paletter_disc(palette_name=palette_name, direction=direction, override.order=override.order),
                  ...)
 }
 
@@ -304,7 +304,7 @@ scale_color_rio_d <- function(palette_name, direction=1, override.order=FALSE, .
 #' scale_fill_rio_d("Imperatriz_Leopoldinense")
 #' @export
 scale_fill_rio_d <- function(palette_name, direction=1, override.order=FALSE, ...){
-  rio.paletter.disc <- function(palette_name, direction = c(1, -1), override.order=FALSE) {
+  rio_paletter_disc <- function(palette_name, direction = c(1, -1), override.order=FALSE) {
 
     `%notin%` <- Negate(`%in%`)
     palette <- RioPalettes[[palette_name]]
@@ -328,7 +328,7 @@ scale_fill_rio_d <- function(palette_name, direction=1, override.order=FALSE, ..
   }
 
   discrete_scale(aesthetics = "fill", scale_name="rio_d",
-                 palette = rio.paletter.disc(palette_name=palette_name, direction=direction, override.order=override.order),
+                 palette = rio_paletter_disc(palette_name=palette_name, direction=direction, override.order=override.order),
                  ...)
 }
 
@@ -363,7 +363,7 @@ scale_color_rio_c <- function(palette_name, direction=1, ...){
     stop("Direction not valid. Please use 1 for standard palette or -1 for reversed palette.")
   }
 
-  scale_color_gradientn(colors=rio.paletter(palette_name=palette_name, direction=direction, override.order = F),
+  scale_color_gradientn(colors=rio_paletter(palette_name=palette_name, direction=direction, override.order = F),
                         ...)
 }
 
@@ -398,7 +398,7 @@ scale_fill_rio_c <- function(palette_name, direction=1, ...){
     stop("Direction not valid. Please use 1 for standard palette or -1 for reversed palette.")
   }
 
-  scale_fill_gradientn(colors=rio.paletter(palette_name=palette_name, direction=direction, override.order = F),
+  scale_fill_gradientn(colors=rio_paletter(palette_name=palette_name, direction=direction, override.order = F),
                        ...)
 }
 
@@ -495,14 +495,14 @@ display_all <- function(n, sequential = FALSE, colorblind_support = "none", dire
 
   plot_palette = function(name,n){
     par(mar = c(0.1,0.1,1,0.1))
-    nn = ifelse(missing(n), length(rio.paletter(name)), n)
+    nn = ifelse(missing(n), length(rio_paletter(name)), n)
     plot(0,type='n',bty='n',xaxt='n',yaxt='n',xlab='',ylab='',
          ylim = c(0,1),xlim=c(0,nn), main = name)
     for(j in 1:nn){
       polygon(x = c(j-1,j-1,j,j),
               y = c(0,1,1,0),
               border = NA,
-              col = rio.paletter(name, nn, direction= direction,override.order=override.order)[j])
+              col = rio_paletter(name, nn, direction= direction,override.order=override.order)[j])
     }
   }
 

@@ -13,9 +13,8 @@ RioPalettes
 \description{
 Use names(RioPalettes) to return all possible palette names. Current choices
 are: \code{Beija_Flor}, \code{Grande_Rio}, \code{Imperatriz_Leopoldinense},
-\code{Imperio_Serrano}, \code{Mangueira}, \code{Padre_Miguel},
-\code{Paraiso_Tuiuti}, \code{Portela}, \code{Salgueiro}, \code{Sao_Clemente},
-\code{Tijuca}, \code{Uniao_Ilha}, \code{Vila_Isabel}, \code{Viradouro}. Use
-\code{\link{rio.paletter}} to construct palettes.
+\code{Imperio_Serrano}, \code{Mangueira}, \code{Padre_Miguel}, \code{Paraiso_Tuiuti}, \code{Portela},
+\code{Salgueiro}, \code{Sao_Clemente}, \code{Tijuca}, \code{Uniao_Ilha}, \code{Vila_Isabel},
+\code{Viradouro.} Use \link{rio_paletter} to construct palettes.
 }
 \keyword{datasets}

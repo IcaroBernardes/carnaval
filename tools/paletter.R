@@ -74,3 +74,28 @@ names(ord) <- 1:5
 ord <- sort(ord)
 ord <- glue::glue_collapse(names(ord), sep = ", ")
 glue::glue("c({ord})")
+
+## Standardizes the dimensions of the shields
+images |> purrr::walk(function(img) {
+
+  img |>
+    magick::image_read(density = 320) |>
+    magick::image_scale("160x160") |>
+    magick::image_extent("200x200", color = "white") |>
+    magick::image_write(img)
+
+})
+
+## Creates the images of the palettes
+palettes <- stringr::str_replace_all(images, c("shields" = "palettes", ".jpg" = ".png"))
+palettes |> purrr::walk(function(img) {
+
+  name = stringr::str_remove_all(img, "tools/palettes/|.png")
+  dev.cur()
+  png(img, res = 320, bg = NA, pointsize = 7,
+      width = 1000, height = 1000, units = "px")
+  pal = carnaval::rio_paletter(name)
+  print(pal)
+  dev.off()
+
+})
