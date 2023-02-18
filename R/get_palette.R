@@ -528,9 +528,10 @@ display_all <- function(n, sequential = FALSE, colorblind_support = "none", dire
   } else {
 
     numrows = 3
-    zeros = numrows - (N %% numrows)
+    quoc = (N-1) %/% numrows
+    zeros = (quoc+1)*numrows - N
     n_vec = c(1:N, rep(0, zeros))
-    rows = (N %/% numrows)+1
+    rows = length(n_vec) %/% numrows
 
     if(missing(n)){
 
