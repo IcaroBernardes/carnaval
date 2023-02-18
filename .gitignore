@@ -7,3 +7,4 @@
 .DS_Store
 tools/*.RDS
 tools/releases/*.RDS
+docs

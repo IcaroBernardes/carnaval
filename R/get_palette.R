@@ -210,7 +210,7 @@ colorblind_friendly <- function(palette_name, type = "all"){
     purrr::keep(names(RioPalettes) %in% palette_name)
 
   friendly <- pallettes |>
-    purrr::map_chr(function(pal) {
+    purrr::map_lgl(function(pal) {
       clrblnd = pal$colorblind
       clrblnd = clrblnd[type]
       clrblnd = purrr::reduce(clrblnd, `&`)
@@ -482,9 +482,11 @@ scale_colour_rio_c <- scale_color_rio_c
 
 display_all <- function(n, sequential = FALSE, colorblind_support = "none", direction = 1, override.order=FALSE){
 
-  if (colorblind_support != "none") {
+  `%notin%` <- Negate(`%in%`)
+
+  if ("none" %notin% colorblind_support) {
     pal_names = names(RioPalettes) |>
-      purrr::map_chr(~colorblind_friendly(.x, type = colorblind_support))
+      purrr::keep(~colorblind_friendly(.x, type = colorblind_support))
     N = length(pal_names)
   } else {
     pal_names = names(RioPalettes)
@@ -506,7 +508,8 @@ display_all <- function(n, sequential = FALSE, colorblind_support = "none", dire
     }
   }
 
-  if(sequential){
+  if(sequential) {
+
     for(i in 1:N){
 
       if(missing(n)){
@@ -514,40 +517,30 @@ display_all <- function(n, sequential = FALSE, colorblind_support = "none", dire
         plot_palette(pal_names[i])
         if(i < N) cat("Hit 'Enter' for next palette");readline()
 
-      }else{
+      } else {
 
         plot_palette(pal_names[i],n)
         if(i < N) cat("Hit 'Enter' for next palette");readline()
+
       }
     }
-  }else{
+
+  } else {
+
+    numrows = 3
+    zeros = numrows - (N %% numrows)
+    n_vec = c(1:N, rep(0, zeros))
+    rows = (N %/% numrows)+1
 
     if(missing(n)){
 
-      if(colorblind_support != "none"){
+      layout(matrix(n_vec, rows, numrows, byrow = TRUE))
+      for(i in 1:N) plot_palette(pal_names[i])
 
-        layout(matrix(1:N,6,4))
-        for(i in 1:N) plot_palette(pal_names[i])
+    } else {
 
-      }else{
-
-        layout(matrix(1:N,8,7))
-        for(i in 1:N) plot_palette(pal_names[i])
-      }
-
-    } else{
-
-      if(colorblind_support != "none"){
-
-        layout(matrix(1:N,6,4))
-        for(i in 1:N) plot_palette(pal_names[i],n)
-
-      }else{
-
-        layout(matrix(1:N,8,7))
-        for(i in 1:N) plot_palette(pal_names[i],n)
-
-      }
+      layout(matrix(n_vec, rows, numrows, byrow = TRUE))
+      for(i in 1:N) plot_palette(pal_names[i], n)
 
     }
 
