@@ -91,14 +91,15 @@ ggplot(data = iris, aes(x = Species, y = Petal.Length, fill = Species)) +
   scale_fill_manual(values = rio_paletter("Imperio_Serrano", 3))
 ```
 
-![](toolsunnamed-chunk-4-1.png)<!-- -->
+![](ex02-1.png)<!-- -->
+<img src="https://github.com/IcaroBernardes/carnaval/blob/master/ex02-1.png"/>
 
 ## Palettes
 
 ### Beija Flor de Nilópolis
 
-<img src="tools/palettes/Beija_Flor.png" width="45%" align="left"/>
-<img src="tools/shields/Beija_Flor.jpg" width="45%" align="right"/>
+<img src="tools/palettes/Beija_Flor.png" width="55%" align="left"/>
+<img src="tools/shields/Beija_Flor.jpg" width="35%" align="right"/>
 <br clear="both"/><br>
 
 - Friendly towards **deuteranopia** and **protanopia**
@@ -107,8 +108,8 @@ ggplot(data = iris, aes(x = Species, y = Petal.Length, fill = Species)) +
 
 ### Acadêmicos do Grande Rio
 
-<img src="tools/palettes/Grande_Rio.png" width="45%" align="left"/>
-<img src="tools/shields/Grande_Rio.jpg" width="45%" align="right"/>
+<img src="https://github.com/IcaroBernardes/carnaval/blob/master/tools/palettes/Grande_Rio.png" width="55%" align="left"/>
+<img src="https://github.com/IcaroBernardes/carnaval/blob/master/tools/shields/Grande_Rio.jpg" width="35%" align="right"/>
 <br clear="both"/><br>
 
 - Friendly towards **protanopia** and **tritanopia**
@@ -117,8 +118,8 @@ ggplot(data = iris, aes(x = Species, y = Petal.Length, fill = Species)) +
 
 ### Imperatriz Leopoldinense
 
-<img src="tools/palettes/Imperatriz_Leopoldinense.png" width="45%" align="left"/>
-<img src="tools/shields/Imperatriz_Leopoldinense.jpg" width="45%" align="right"/>
+<img src="tools/palettes/Imperatriz_Leopoldinense.png" width="55%" align="left"/>
+<img src="tools/shields/Imperatriz_Leopoldinense.jpg" width="35%" align="right"/>
 <br clear="both"/><br>
 
 - Friendly towards **deuteranopia** and **tritanopia**
@@ -127,8 +128,8 @@ ggplot(data = iris, aes(x = Species, y = Petal.Length, fill = Species)) +
 
 ### Império Serrano
 
-<img src="tools/palettes/Imperio_Serrano.png" width="45%" align="left"/>
-<img src="tools/shields/Imperio_Serrano.jpg" width="45%" align="right"/>
+<img src="tools/palettes/Imperio_Serrano.png" width="55%" align="left"/>
+<img src="tools/shields/Imperio_Serrano.jpg" width="35%" align="right"/>
 <br clear="both"/><br>
 
 - Friendly towards **deuteranopia**, **protanopia** and **tritanopia**
@@ -137,8 +138,8 @@ ggplot(data = iris, aes(x = Species, y = Petal.Length, fill = Species)) +
 
 ### Estação Primeira de Mangueira
 
-<img src="tools/palettes/Mangueira.png" width="45%" align="left"/>
-<img src="tools/shields/Mangueira.jpg" width="45%" align="right"/>
+<img src="tools/palettes/Mangueira.png" width="55%" align="left"/>
+<img src="tools/shields/Mangueira.jpg" width="35%" align="right"/>
 <br clear="both"/><br>
 
 - Friendly towards **deuteranopia**, **protanopia** and **tritanopia**
@@ -147,8 +148,8 @@ ggplot(data = iris, aes(x = Species, y = Petal.Length, fill = Species)) +
 
 ### Mocidade Independente de Padre Miguel
 
-<img src="tools/palettes/Padre_Miguel.png" width="45%" align="left"/>
-<img src="tools/shields/Padre_Miguel.jpg" width="45%" align="right"/>
+<img src="tools/palettes/Padre_Miguel.png" width="55%" align="left"/>
+<img src="tools/shields/Padre_Miguel.jpg" width="35%" align="right"/>
 <br clear="both"/><br>
 
 - Friendly towards **deuteranopia** and **tritanopia**
@@ -157,8 +158,8 @@ ggplot(data = iris, aes(x = Species, y = Petal.Length, fill = Species)) +
 
 ### Paraíso do Tuiuti
 
-<img src="tools/palettes/Paraiso_Tuiuti.png" width="45%" align="left"/>
-<img src="tools/shields/Paraiso_Tuiuti.jpg" width="45%" align="right"/>
+<img src="tools/palettes/Paraiso_Tuiuti.png" width="55%" align="left"/>
+<img src="tools/shields/Paraiso_Tuiuti.jpg" width="35%" align="right"/>
 <br clear="both"/><br>
 
 - Friendly towards **deuteranopia**, **protanopia** and **tritanopia**
@@ -167,8 +168,8 @@ ggplot(data = iris, aes(x = Species, y = Petal.Length, fill = Species)) +
 
 ### Portela
 
-<img src="tools/palettes/Portela.png" width="45%" align="left"/>
-<img src="tools/shields/Portela.jpg" width="45%" align="right"/>
+<img src="tools/palettes/Portela.png" width="55%" align="left"/>
+<img src="tools/shields/Portela.jpg" width="35%" align="right"/>
 <br clear="both"/><br>
 
 - Friendly towards **deuteranopia**, **protanopia** and **tritanopia**
@@ -177,8 +178,8 @@ ggplot(data = iris, aes(x = Species, y = Petal.Length, fill = Species)) +
 
 ### Acadêmicos do Salgueiro
 
-<img src="tools/palettes/Salgueiro.png" width="45%" align="left"/>
-<img src="tools/shields/Salgueiro.jpg" width="45%" align="right"/>
+<img src="tools/palettes/Salgueiro.png" width="35%" align="left"/>
+<img src="tools/shields/Salgueiro.jpg" width="35%" align="right"/>
 <br clear="both"/><br>
 
 - Friendly towards **deuteranopia**, **protanopia** and **tritanopia**
@@ -187,8 +188,8 @@ ggplot(data = iris, aes(x = Species, y = Petal.Length, fill = Species)) +
 
 ### São Clemente
 
-<img src="tools/palettes/Sao_Clemente.png" width="45%" align="left"/>
-<img src="tools/shields/Sao_Clemente.jpg" width="45%" align="right"/>
+<img src="tools/palettes/Sao_Clemente.png" width="55%" align="left"/>
+<img src="tools/shields/Sao_Clemente.jpg" width="35%" align="right"/>
 <br clear="both"/><br>
 
 - Friendly towards **deuteranopia**, **protanopia** and **tritanopia**
@@ -197,8 +198,8 @@ ggplot(data = iris, aes(x = Species, y = Petal.Length, fill = Species)) +
 
 ### Unidos da Tijuca
 
-<img src="tools/palettes/Tijuca.png" width="45%" align="left"/>
-<img src="tools/shields/Tijuca.jpg" width="45%" align="right"/>
+<img src="tools/palettes/Tijuca.png" width="55%" align="left"/>
+<img src="tools/shields/Tijuca.jpg" width="35%" align="right"/>
 <br clear="both"/><br>
 
 - Friendly towards **deuteranopia**, **protanopia** and **tritanopia**
@@ -207,8 +208,8 @@ ggplot(data = iris, aes(x = Species, y = Petal.Length, fill = Species)) +
 
 ### União da Ilha do Governador
 
-<img src="tools/palettes/Uniao_Ilha.png" width="45%" align="left"/>
-<img src="tools/shields/Uniao_Ilha.jpg" width="45%" align="right"/>
+<img src="tools/palettes/Uniao_Ilha.png" width="55%" align="left"/>
+<img src="tools/shields/Uniao_Ilha.jpg" width="35%" align="right"/>
 <br clear="both"/><br>
 
 - Friendly towards **deuteranopia**, **protanopia** and **tritanopia**
@@ -217,8 +218,8 @@ ggplot(data = iris, aes(x = Species, y = Petal.Length, fill = Species)) +
 
 ### Unidos de Vila Isabel
 
-<img src="tools/palettes/Vila_Isabel.png" width="45%" align="left"/>
-<img src="tools/shields/Vila_Isabel.jpg" width="45%" align="right"/>
+<img src="tools/palettes/Vila_Isabel.png" width="55%" align="left"/>
+<img src="tools/shields/Vila_Isabel.jpg" width="35%" align="right"/>
 <br clear="both"/><br>
 
 - Friendly towards **deuteranopia**
@@ -227,8 +228,8 @@ ggplot(data = iris, aes(x = Species, y = Petal.Length, fill = Species)) +
 
 ### Unidos do Viradouro
 
-<img src="tools/palettes/Viradouro.png" width="45%" align="left"/>
-<img src="tools/shields/Viradouro.jpg" width="45%" align="right"/>
+<img src="tools/palettes/Viradouro.png" width="55%" align="left"/>
+<img src="tools/shields/Viradouro.jpg" width="35%" align="right"/>
 <br clear="both"/><br>
 
 - Friendly towards **deuteranopia**, **protanopia** and **tritanopia**
