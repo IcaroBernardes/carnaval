@@ -177,7 +177,7 @@ ggplot(data = iris, aes(x = Species, y = Petal.Length, fill = Species)) +
 
 ### Acadêmicos do Salgueiro
 
-<img src="man/figures/palettes/Salgueiro.png" width="35%" align="left"/>
+<img src="man/figures/palettes/Salgueiro.png" width="55%" align="left"/>
 <img src="man/figures/shields/Salgueiro.jpg" width="35%" align="right"/>
 <br clear="both"/><br>
 
