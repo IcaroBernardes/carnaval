@@ -1,6 +1,6 @@
 # Algorithm-aided process of composing the palettes #############
 ## Lists the images
-images <- list.files("tools/shields", full.names = TRUE)
+images <- list.files("man/figures/shields", full.names = TRUE)
 
 ## Takes "n" colors from the symbol of the
 ## school and allows the user to choose some of them
@@ -90,7 +90,7 @@ images |> purrr::walk(function(img) {
 palettes <- stringr::str_replace_all(images, c("shields" = "palettes", ".jpg" = ".png"))
 palettes |> purrr::walk(function(img) {
 
-  name = stringr::str_remove_all(img, "tools/palettes/|.png")
+  name = stringr::str_remove_all(img, "man/figures/palettes/|.png")
   dev.cur()
   png(img, res = 320, bg = NA, pointsize = 7,
       width = 1000, height = 1000, units = "px")
