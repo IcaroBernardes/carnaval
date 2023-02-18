@@ -91,8 +91,7 @@ ggplot(data = iris, aes(x = Species, y = Petal.Length, fill = Species)) +
   scale_fill_manual(values = rio_paletter("Imperio_Serrano", 3))
 ```
 
-![](ex02-1.png)<!-- -->
-<img src="https://github.com/IcaroBernardes/carnaval/blob/master/ex02-1.png"/>
+![](man/figures/ex02-1.png)<!-- -->
 
 ## Palettes
 

@@ -10,7 +10,7 @@ output:
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  fig.path = "",
+  fig.path = "man/figures/",
   warning = FALSE
 )
 ```
@@ -63,7 +63,7 @@ library(carnaval)
 get_scores(years = c(1968, 1970), schools = c("portela", "Estácio de Sá"))
 ```
 
-```{r ex02, warning=FALSE, message=FALSE, results='hide'}
+```{r ex02, warning=FALSE, message=FALSE}
 # Loads ggplot2
 library(ggplot2)
 
@@ -72,7 +72,6 @@ ggplot(data = iris, aes(x = Species, y = Petal.Length, fill = Species)) +
   geom_violin() +
   scale_fill_manual(values = rio_paletter("Imperio_Serrano", 3))
 ```
-<img src="https://github.com/IcaroBernardes/carnaval/blob/master/ex02-1.png"/>
 
 ## Palettes
 
