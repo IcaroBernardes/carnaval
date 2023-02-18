@@ -91,7 +91,7 @@ ggplot(data = iris, aes(x = Species, y = Petal.Length, fill = Species)) +
   scale_fill_manual(values = rio_paletter("Imperio_Serrano", 3))
 ```
 
-![](tools/README-unnamed-chunk-4-1.png)<!-- -->
+![](toolsunnamed-chunk-4-1.png)<!-- -->
 
 ## Palettes
 
