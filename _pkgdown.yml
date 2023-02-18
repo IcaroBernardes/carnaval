@@ -1,4 +1,6 @@
 url: https://icarobernardes.github.io/carnaval/
 template:
   bootstrap: 5
-
+resource_files:
+  - tools/palettes
+  - tools/shields
