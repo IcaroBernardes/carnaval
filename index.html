@@ -76,8 +76,8 @@
 </div>
 <!-- badges: start -->
 
-<!-- badges: end -->
-<p>Carnaval is the biggest street feast of Brazil. It happens all over the country in a kaleidoscope of sound and color. One of its many shapes is the yearly competition between Samba Schools in Rio. The <code>carnaval</code> R package provides easy access to both datasets on the competition and color palettes inspired by the carioca Samba Schools. The package focuses on the main league of the competition (“Grupo Especial”).</p>
+<p>Carnaval is the biggest street feast of Brazil. It happens all over the country in a kaleidoscope of sound and color. One of its many shapes is the yearly competition between Samba Schools in Rio.</p>
+<p>The <code>carnaval</code> package provides easy access to both datasets on the competition and color palettes inspired by the carioca Samba Schools. The package focuses on the main league of the competition (“Grupo Especial”).</p>
 <p>Currently, all data comes from the <a href="https://galeriadosamba.com.br" class="external-link">Galeria do Samba</a> portal. If you like this package, please help them keeping their project afloat: <a href="https://galeriadosamba.com.br/espaco-aberto/contribua/" class="external-link">Contribua</a>.</p>
 <p>The package is under development and has these functions:</p>
 <ul>
@@ -125,10 +125,15 @@
 <code class="sourceCode R"><span><span class="co"># Loads ggplot2</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Creates a plot and applies manually the palette from Império Serrano</span></span>
-<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">iris</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Species</span>, y <span class="op">=</span> <span class="va">Petal.Length</span>, fill <span class="op">=</span> <span class="va">Species</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span><span class="co"># Gets the scores of Império Serrano from 1968 until 2018 on the Bateria criterion.</span></span>
+<span><span class="co"># Throws some warnings to inform the user which years are absent of the data</span></span>
+<span><span class="co"># (either from missing info or because the school didn't compete in the main league)</span></span>
+<span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_scores.html">get_scores</a></span><span class="op">(</span>years <span class="op">=</span> <span class="fl">1968</span><span class="op">:</span><span class="fl">2018</span>, schools <span class="op">=</span> <span class="st">"Império Serrano"</span>, criterions <span class="op">=</span> <span class="st">"BATERIA"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Creates a plot and applies manually the palette of Império Serrano</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">df</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">judge_number</span>, y <span class="op">=</span> <span class="va">score</span>, fill <span class="op">=</span> <span class="va">judge_number</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_violin.html" class="external-link">geom_violin</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="reference/rio_paletter.html">rio_paletter</a></span><span class="op">(</span><span class="st">"Imperio_Serrano"</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="reference/rio_paletter.html">rio_paletter</a></span><span class="op">(</span><span class="st">"Imperio_Serrano"</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/ex02-1.png"><!-- --></p>
 </div>
 <div class="section level2">
@@ -273,6 +278,12 @@
 </li>
 </ul>
 </div>
+</div>
+<div class="section level2">
+<h2 id="credits">Credits<a class="anchor" aria-label="anchor" href="#credits"></a>
+</h2>
+<p>This package was created by <a href="https://twitter.com/IcaroBSC" class="external-link">Ícaro Bernardes</a>.</p>
+<p>The hex logo was created by <a href="https://twitter.com/BrunoHMioto" class="external-link">Bruno Mioto</a>.</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
