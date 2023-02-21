@@ -4,7 +4,7 @@ images <- list.files("man/figures/shields", full.names = TRUE)
 
 ## Takes "n" colors from the symbol of the
 ## school and allows the user to choose some of them
-pal_orig <- eyedroppeR::extract_pal(n = 5, images[14])
+pal_orig <- eyedroppeR::extract_pal(n = 5, images[5])
 
 ## Explores the HSL values of the colors
 pal_orig |> purrr::map_dfc(function(col) {
@@ -18,9 +18,9 @@ pal_orig |> purrr::map_dfc(function(col) {
 ## Creates a draft of the palette with pairs of colors (sequential or divergent)
 plotwidgets::hsl2col(matrix(c(1,0.90,0.40), nrow = 3)) ### main color
 plotwidgets::hsl2col(matrix(c(11,0.75,0.53), nrow = 3))
-plotwidgets::hsl2col(matrix(c(21,0.60,0.66), nrow = 3)) ### (sometimes) tertiary color
+plotwidgets::hsl2col(matrix(c(21,0.60,0.66), nrow = 3))
 plotwidgets::hsl2col(matrix(c(31,0.45,0.79), nrow = 3))
-plotwidgets::hsl2col(matrix(c(41,0.30,0.92), nrow = 3)) ### secondary color
+plotwidgets::hsl2col(matrix(c(41,0.30,0.92), nrow = 3)) ### secondary color (sometimes)
 pal <- c("#0A82C2", "#2CA6E8", "#74BFE7", "#B1D7EC", "#ECF4F9")
 
 ## Check the distance between colors for normal view and colorblindness conditions

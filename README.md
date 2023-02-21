@@ -1,6 +1,6 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# carnaval
+# carnaval <a href="https://icarobernardes.github.io/carnaval/"><img src="man/figures/logo.png" align="right" height="500" /></a>
 
 <!-- badges: start -->
 
