@@ -7,10 +7,9 @@
 scale_fill_rio_d(palette_name, direction = 1, override.order = FALSE, ...)
 }
 \arguments{
-\item{palette_name}{Name of Palette. Choices are: \code{Beija_Flor},
-\code{Grande_Rio}, \code{Imperatriz_Leopoldinense}, \code{Imperio_Serrano},
-\code{Mangueira}, \code{Padre_Miguel}, \code{Paraiso_Tuiuti},
-\code{Portela}, \code{Salgueiro}, \code{Sao_Clemente}, \code{Tijuca},
+\item{palette_name}{Name of Palette. Choices are: \code{Beija_Flor}, \code{Grande_Rio},
+\code{Imperatriz_Leopoldinense}, \code{Imperio_Serrano}, \code{Mangueira}, \code{Padre_Miguel},
+\code{Paraiso_Tuiuti}, \code{Portela}, \code{Salgueiro}, \code{Sao_Clemente}, \code{Tijuca},
 \code{Uniao_Ilha}, \code{Vila_Isabel}, \code{Viradouro}.}
 
 \item{direction}{Sets order of colors. Default palette is 1. If direction is
@@ -21,17 +20,31 @@ This means that colors are not always selected in sequential order from the
 full palette. If override.order is set to TRUE, colors are selected in
 sequential order from the full palette instead. Default is FALSE.}
 
-\item{...}{Other arguments passed on to \code{\link[ggplot2]{discrete_scale}}}
+\item{...}{Other arguments passed on to \code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}}}
 }
 \description{
-Function for using \code{RioPaletter} colors schemes in \code{ggplot2}. Use
-\code{\link{scale_color_rio_d}} and \code{\link{scale_fill_rio_d}} for
-discrete scales and \code{\link{scale_color_rio_c}} and
-\code{\link{scale_fill_rio_c}} for continuous scales.
+Function for using \link{RioPalettes} colors schemes in \code{ggplot2}. Use
+\code{\link[=scale_color_rio_d]{scale_color_rio_d()}} and \code{\link[=scale_fill_rio_d]{scale_fill_rio_d()}} for discrete scales and
+\code{\link[=scale_color_rio_c]{scale_color_rio_c()}} and \code{\link[=scale_fill_rio_c]{scale_fill_rio_c()}} for continuous scales.
 }
 \examples{
+# Gets the scores of Mangueira from 1968 until 2018 on the Bateria criterion.
+# Throws some warnings to inform the user which years are absent of the data
+# (either from missing info or because the school didn't compete in the main league)
+df <- get_scores(years = 1968:2018,
+                 schools = "Acadêmicos do Grande Rio",
+                 criterions = "BATERIA")
+
+# Loads ggplot2
 library(ggplot2)
-ggplot(data=iris, aes(x=Species, y=Sepal.Length, fill=Species)) +
-geom_violin() +
-scale_fill_rio_d("Imperatriz_Leopoldinense")
+
+# Creates a plot and applies the palette of Grande Rio
+df |>
+  mutate(era = case_when(
+      between(year, 1991, 2004) ~ "1991-2004",
+      between(year, 2005, 2018) ~ "2005-2018"
+  )) |>
+  ggplot(aes(x = era, y = score, color = era)) +
+    geom_violin() +
+    scale_fill_rio_d("Grande_Rio")
 }

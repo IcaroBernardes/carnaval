@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# carnaval <a href="https://icarobernardes.github.io/carnaval/"><img src="man/figures/logo.png" align="right" height="500" /></a>
+# carnaval <a href="https://icarobernardes.github.io/carnaval/"><img src="man/figures/logo.png" align="right" width="500" /></a>
 
 <!-- badges: start -->
 [![Lifecycle: experimental](https://lifecycle.r-lib.org/articles/figures/lifecycle-experimental.svg)](https://www.tidyverse.org/lifecycle/#experimental)
@@ -63,7 +63,7 @@ library(carnaval)
 get_scores(years = c(1968, 1970), schools = c("portela", "Estácio de Sá"))
 ```
 
-```{r ex02, warning=FALSE, message=FALSE}
+```{r ex02, message=FALSE}
 # Loads ggplot2
 library(ggplot2)
 
@@ -222,4 +222,4 @@ ggplot(data = df, aes(x = judge_number, y = score, fill = judge_number)) +
 
 This package was created by [Ícaro Bernardes](https://twitter.com/IcaroBSC).
 
-The hex logo was created by [Bruno Mioto](https://twitter.com/BrunoHMioto).
+The hex logo was created by [Bruno Mioto](https://twitter.com/BrunoHMioto). Bruno also gave many tips that made building the package easier.

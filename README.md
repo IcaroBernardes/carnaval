@@ -1,6 +1,6 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# carnaval <a href="https://icarobernardes.github.io/carnaval/"><img src="man/figures/logo.png" align="right" height="500" /></a>
+# carnaval <a href="https://icarobernardes.github.io/carnaval/"><img src="man/figures/logo.png" align="right" width="500" /></a>
 
 <!-- badges: start -->
 
@@ -245,4 +245,5 @@ This package was created by [Ícaro
 Bernardes](https://twitter.com/IcaroBSC).
 
 The hex logo was created by [Bruno
-Mioto](https://twitter.com/BrunoHMioto).
+Mioto](https://twitter.com/BrunoHMioto). Bruno also gave many tips that
+made building the package easier.
