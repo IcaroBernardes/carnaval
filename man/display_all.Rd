@@ -13,17 +13,23 @@ display_all(
 )
 }
 \arguments{
-\item{n}{Number of requested colors. If n is left blank, default palette is returned.}
+\item{n}{Number of requested colors. If n is left blank, default palette is
+returned.}
 
-\item{sequential}{Should palettes displayed all at once, or one at a time. Default is all at once (FALSE).}
+\item{sequential}{Should palettes displayed all at once, or one at a time.
+Default is all at once (FALSE).}
 
-\item{colorblind_support}{Which type of colorblind friendliness should the returned palettes have. Default is "none".}
+\item{colorblind_support}{Which type of colorblind friendliness should the
+returned palettes have. Default is "none".}
 
-\item{direction}{Sets order of colors. Default palette is 1. If direction is -1, palette color order is reversed}
+\item{direction}{Sets order of colors. Default palette is 1. If direction is
+-1, palette color order is reversed}
 
-\item{override.order}{Colors are picked from palette to maximize readability and aesthetics. This means
-that colors are not always selected in sequential order from the full palette. If override.order is set to TRUE,
-colors are selected in sequential order from the full palette instead. Default is FALSE.}
+\item{override.order}{Colors are picked from palette to maximize readability
+and aesthetics. This means that colors are not always selected in
+sequential order from the full palette. If override.order is set to TRUE,
+colors are selected in sequential order from the full palette instead.
+Default is FALSE.}
 }
 \description{
 Function for viewing all palettes available in RioPaletter.

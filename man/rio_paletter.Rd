@@ -13,6 +13,11 @@ rio_paletter(
 )
 }
 \arguments{
+\item{palette_name}{Name of Palette. Choices are: \code{Beija_Flor}, \code{Grande_Rio},
+\code{Imperatriz_Leopoldinense}, \code{Imperio_Serrano}, \code{Mangueira}, \code{Padre_Miguel},
+\code{Paraiso_Tuiuti}, \code{Portela}, \code{Salgueiro}, \code{Sao_Clemente}, \code{Tijuca},
+\code{Uniao_Ilha}, \code{Vila_Isabel}, \code{Viradouro}.}
+
 \item{n}{Number of desired colors. If number of requested colors is beyond
 the scope of the palette, colors are automatically interpolated. If n is
 not provided, the length of the palette is used.}
@@ -28,11 +33,6 @@ and aesthetics. This means that colors are not always selected in
 sequential order from the full palette. If override.order is set to TRUE,
 colors are selected in sequential order from the full palette instead.
 Default is FALSE.}
-
-\item{palette}{Name of Palette. Choices are: \code{Beija_Flor}, \code{Grande_Rio},
-\code{Imperatriz_Leopoldinense}, \code{Imperio_Serrano}, \code{Mangueira}, \code{Padre_Miguel},
-\code{Paraiso_Tuiuti}, \code{Portela}, \code{Salgueiro}, \code{Sao_Clemente}, \code{Tijuca},
-\code{Uniao_Ilha}, \code{Vila_Isabel}, \code{Viradouro}.}
 }
 \value{
 A vector of colors.

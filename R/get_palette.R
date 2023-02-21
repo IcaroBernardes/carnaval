@@ -62,7 +62,7 @@ RioPalettes <- list(
 #' \href{https://github.com/IcaroBernardes/carnaval}{on Github}. Use
 #' [colorblind_friendly()] to check whether palettes are colorblind-friendly.
 #'
-#' @param palette Name of Palette. Choices are: `Beija_Flor`, `Grande_Rio`,
+#' @param palette_name Name of Palette. Choices are: `Beija_Flor`, `Grande_Rio`,
 #'   `Imperatriz_Leopoldinense`, `Imperio_Serrano`, `Mangueira`, `Padre_Miguel`,
 #'   `Paraiso_Tuiuti`, `Portela`, `Salgueiro`, `Sao_Clemente`, `Tijuca`,
 #'   `Uniao_Ilha`, `Vila_Isabel`, `Viradouro`.
@@ -217,6 +217,8 @@ print.palette <- function(x, ...) {
 #'   `Imperatriz_Leopoldinense`, `Imperio_Serrano`, `Mangueira`, `Padre_Miguel`,
 #'   `Paraiso_Tuiuti`, `Portela`, `Salgueiro`, `Sao_Clemente`, `Tijuca`,
 #'   `Uniao_Ilha`, `Vila_Isabel`, `Viradouro`.
+#' @param type Which kind of colorblindness to check. Deuteranopia, protanopia,
+#'   and/or tritanopia
 #' @examples
 #' colorblind_friendly("Imperio_Serrano", type = "tritanopia")
 #' @return TRUE/FALSE value whether palette is colorblind-friendly
@@ -266,7 +268,6 @@ colorblind_friendly <- function(palette_name, type = "all"){
 #'   full palette. If override.order is set to TRUE, colors are selected in
 #'   sequential order from the full palette instead. Default is FALSE.
 #' @param ... Other arguments passed on to [ggplot2::discrete_scale()]
-#' @import ggplot2
 #' @examples
 #' # Gets the scores of Mangueira from 1968 until 2018 on the Bateria criterion.
 #' # Throws some warnings to inform the user which years are absent of the data
@@ -275,8 +276,9 @@ colorblind_friendly <- function(palette_name, type = "all"){
 #'                  schools = "Estação primeira de Mangueira",
 #'                  criterions = "BATERIA")
 #'
-#' # Loads ggplot2
+#' # Loads ggplot2 and dplyr
 #' library(ggplot2)
+#' library(dplyr)
 #'
 #' # Creates a plot and applies the palette of Mangueira
 #' df |>
@@ -314,9 +316,11 @@ scale_color_rio_d <- function(palette_name, direction = 1, override.order = FALS
 
   }
 
-  discrete_scale(aesthetics = "colour", scale_name="rio_d",
-                 palette = rio_paletter_disc(palette_name=palette_name, direction=direction, override.order=override.order),
-                 ...)
+  ggplot2::discrete_scale(aesthetics = "colour", scale_name = "rio_d",
+                          palette = rio_paletter_disc(palette_name = palette_name,
+                                                      direction = direction,
+                                                      override.order = override.order),
+                          ...)
 }
 
 #' RioPaletter palettes for plotting with ggplot2
@@ -336,17 +340,17 @@ scale_color_rio_d <- function(palette_name, direction = 1, override.order = FALS
 #'   full palette. If override.order is set to TRUE, colors are selected in
 #'   sequential order from the full palette instead. Default is FALSE.
 #' @param ... Other arguments passed on to [ggplot2::discrete_scale()]
-#' @import ggplot2
 #' @examples
-#' # Gets the scores of Mangueira from 1968 until 2018 on the Bateria criterion.
+#' # Gets the scores of Grande Rio from 1968 until 2018 on the Bateria criterion.
 #' # Throws some warnings to inform the user which years are absent of the data
 #' # (either from missing info or because the school didn't compete in the main league)
 #' df <- get_scores(years = 1968:2018,
 #'                  schools = "Acadêmicos do Grande Rio",
 #'                  criterions = "BATERIA")
 #'
-#' # Loads ggplot2
+#' # Loads ggplot2 and dplyr
 #' library(ggplot2)
+#' library(dplyr)
 #'
 #' # Creates a plot and applies the palette of Grande Rio
 #' df |>
@@ -382,35 +386,44 @@ scale_fill_rio_d <- function(palette_name, direction = 1, override.order = FALSE
     }
   }
 
-  discrete_scale(aesthetics = "fill", scale_name="rio_d",
-                 palette = rio_paletter_disc(palette_name=palette_name, direction=direction, override.order=override.order),
-                 ...)
+  ggplot2::discrete_scale(aesthetics = "fill", scale_name = "rio_d",
+                          palette = rio_paletter_disc(palette_name = palette_name,
+                                                      direction = direction,
+                                                      override.order = override.order),
+                          ...)
 }
 
 #' RioPaletter palettes for plotting with ggplot2
 #'
-#' Function for using \code{RioPaletter} colors schemes in \code{ggplot2}. Use
-#' \code{\link{scale_color_rio_d}} and \code{\link{scale_fill_rio_d}} for
-#' discrete scales and \code{\link{scale_color_rio_c}} and
-#' \code{\link{scale_fill_rio_c}} for continuous scales.
+#' Function for using [RioPalettes] colors schemes in `ggplot2`. Use
+#' [scale_color_rio_d()] and [scale_fill_rio_d()] for discrete scales and
+#' [scale_color_rio_c()] and [scale_fill_rio_c()] for continuous scales.
 #'
-#' @param palette_name Name of Palette. Choices are: \code{Beija_Flor},
-#'   \code{Grande_Rio}, \code{Imperatriz_Leopoldinense}, \code{Imperio_Serrano},
-#'   \code{Mangueira}, \code{Padre_Miguel}, \code{Paraiso_Tuiuti},
-#'   \code{Portela}, \code{Salgueiro}, \code{Sao_Clemente}, \code{Tijuca},
-#'   \code{Uniao_Ilha}, \code{Vila_Isabel}, \code{Viradouro}.
+#' @param palette_name Name of Palette. Choices are: `Beija_Flor`, `Grande_Rio`,
+#'   `Imperatriz_Leopoldinense`, `Imperio_Serrano`, `Mangueira`, `Padre_Miguel`,
+#'   `Paraiso_Tuiuti`, `Portela`, `Salgueiro`, `Sao_Clemente`, `Tijuca`,
+#'   `Uniao_Ilha`, `Vila_Isabel`, `Viradouro`.
 #' @param direction Sets order of colors. Default palette is 1. If direction is
 #'   -1, palette color order is reversed
-#' @param ... Other arguments passed on to
-#'   \code{\link[ggplot2]{scale_color_gradientn}}
-#' @import ggplot2
+#' @param ... Other arguments passed on to [ggplot2::scale_color_gradientn()]
 #' @examples
+#' # Gets the scores of Salgueiro from 1968 until 2018 on the Bateria criterion.
+#' # Throws some warnings to inform the user which years are absent of the data
+#' # (either from missing info or because the school didn't compete in the main league)
+#' df <- get_scores(years = 1968:2018,
+#'                  schools = "Acadêmicos do Salgueiro",
+#'                  criterions = "BATERIA")
+#'
+#' # Loads ggplot2
 #' library(ggplot2)
-#' ggplot(data=iris, aes(x=Sepal.Length, y=Sepal.Width, color=Sepal.Length)) +
-#' geom_point() +
-#' scale_color_rio_c("Salgueiro", direction=-1)
+#'
+#' # Creates a plot and applies the palette of Salgueiro
+#' df |>
+#'   ggplot(aes(x = year, y = score, color = score)) +
+#'     geom_point() +
+#'     scale_color_rio_c("Salgueiro")
 #' @export
-scale_color_rio_c <- function(palette_name, direction=1, ...){
+scale_color_rio_c <- function(palette_name, direction = 1, ...){
 
   `%notin%` <- Negate(`%in%`)
 
@@ -418,34 +431,43 @@ scale_color_rio_c <- function(palette_name, direction=1, ...){
     stop("Direction not valid. Please use 1 for standard palette or -1 for reversed palette.")
   }
 
-  scale_color_gradientn(colors=rio_paletter(palette_name=palette_name, direction=direction, override.order = F),
-                        ...)
+  ggplot2::scale_color_gradientn(colors = rio_paletter(palette_name = palette_name,
+                                                       direction = direction,
+                                                       override.order = FALSE),
+                                 ...)
 }
 
 #' RioPaletter palettes for plotting with ggplot2
 #'
-#' Function for using \code{RioPaletter} colors schemes in \code{ggplot2}. Use
-#' \code{\link{scale_color_rio_d}} and \code{\link{scale_fill_rio_d}} for
-#' discrete scales and \code{\link{scale_color_rio_c}} and
-#' \code{\link{scale_fill_rio_c}} for continuous scales.
+#' Function for using [RioPalettes] colors schemes in `ggplot2`. Use
+#' [scale_color_rio_d()] and [scale_fill_rio_d()] for discrete scales and
+#' [scale_color_rio_c()] and [scale_fill_rio_c()] for continuous scales.
 #'
-#' @param palette_name Name of Palette. Choices are: \code{Beija_Flor},
-#'   \code{Grande_Rio}, \code{Imperatriz_Leopoldinense}, \code{Imperio_Serrano},
-#'   \code{Mangueira}, \code{Padre_Miguel}, \code{Paraiso_Tuiuti},
-#'   \code{Portela}, \code{Salgueiro}, \code{Sao_Clemente}, \code{Tijuca},
-#'   \code{Uniao_Ilha}, \code{Vila_Isabel}, \code{Viradouro}.
+#' @param palette_name Name of Palette. Choices are: `Beija_Flor`, `Grande_Rio`,
+#'   `Imperatriz_Leopoldinense`, `Imperio_Serrano`, `Mangueira`, `Padre_Miguel`,
+#'   `Paraiso_Tuiuti`, `Portela`, `Salgueiro`, `Sao_Clemente`, `Tijuca`,
+#'   `Uniao_Ilha`, `Vila_Isabel`, `Viradouro`.
 #' @param direction Sets order of colors. Default palette is 1. If direction is
 #'   -1, palette color order is reversed
-#' @param ... Other arguments passed on to
-#'   \code{\link[ggplot2]{scale_color_gradientn}}
-#' @import ggplot2
+#' @param ... Other arguments passed on to [ggplot2::scale_fill_gradientn()]
 #' @examples
+#' # Gets the scores of União da Ilha from 1968 until 2018 on the Bateria criterion.
+#' # Throws some warnings to inform the user which years are absent of the data
+#' # (either from missing info or because the school didn't compete in the main league)
+#' df <- get_scores(years = 1968:2018,
+#'                  schools = "União da Ilha do Governador",
+#'                  criterions = "BATERIA")
+#'
+#' # Loads ggplot2
 #' library(ggplot2)
-#' ggplot(data=iris, aes(x=Sepal.Length, y=Sepal.Width, fill=Sepal.Length)) +
-#' geom_violin() +
-#' scale_fill_rio_c("Uniao_Ilha", direction=-1)
+#'
+#' # Creates a plot and applies the palette of União da Ilha
+#' df |>
+#'   ggplot(aes(x = year, y = score, fill = score)) +
+#'     geom_point(color = "black", shape = 21, size = 2) +
+#'     scale_fill_rio_c("Uniao_Ilha")
 #' @export
-scale_fill_rio_c <- function(palette_name, direction=1, ...){
+scale_fill_rio_c <- function(palette_name, direction = 1, ...){
 
   `%notin%` <- Negate(`%in%`)
 
@@ -453,76 +475,103 @@ scale_fill_rio_c <- function(palette_name, direction=1, ...){
     stop("Direction not valid. Please use 1 for standard palette or -1 for reversed palette.")
   }
 
-  scale_fill_gradientn(colors=rio_paletter(palette_name=palette_name, direction=direction, override.order = F),
-                       ...)
+  ggplot2::scale_fill_gradientn(colors = rio_paletter(palette_name = palette_name,
+                                                      direction = direction,
+                                                      override.order = FALSE),
+                                ...)
 }
 
 #' RioPaletter palettes for plotting with ggplot2
 #'
-#' Function for using \code{RioPaletter} colors schemes in \code{ggplot2}. Use
-#' \code{\link{scale_color_rio_d}} and \code{\link{scale_fill_rio_d}} for
-#' discrete scales and \code{\link{scale_color_rio_c}} and
-#' \code{\link{scale_fill_rio_c}} for continuous scales.
+#' Function for using [RioPalettes] colors schemes in `ggplot2`. Use
+#' [scale_color_rio_d()] and [scale_fill_rio_d()] for discrete scales and
+#' [scale_color_rio_c()] and [scale_fill_rio_c()] for continuous scales.
 #'
-#' @param palette_name Name of Palette. Choices are: \code{Beija_Flor},
-#'   \code{Grande_Rio}, \code{Imperatriz_Leopoldinense}, \code{Imperio_Serrano},
-#'   \code{Mangueira}, \code{Padre_Miguel}, \code{Paraiso_Tuiuti},
-#'   \code{Portela}, \code{Salgueiro}, \code{Sao_Clemente}, \code{Tijuca},
-#'   \code{Uniao_Ilha}, \code{Vila_Isabel}, \code{Viradouro}.
+#' @param palette_name Name of Palette. Choices are: `Beija_Flor`, `Grande_Rio`,
+#'   `Imperatriz_Leopoldinense`, `Imperio_Serrano`, `Mangueira`, `Padre_Miguel`,
+#'   `Paraiso_Tuiuti`, `Portela`, `Salgueiro`, `Sao_Clemente`, `Tijuca`,
+#'   `Uniao_Ilha`, `Vila_Isabel`, `Viradouro`.
 #' @param direction Sets order of colors. Default palette is 1. If direction is
 #'   -1, palette color order is reversed
 #' @param override.order Colors are picked from palette to maximize readability.
 #'   This means that colors are not always selected in sequential order from the
 #'   full palette. If override.order is set to TRUE, colors are selected in
 #'   sequential order from the full palette instead. Default is FALSE.
-#' @param ... Other arguments passed on to \code{\link[ggplot2]{discrete_scale}}
-#' @import ggplot2
+#' @param ... Other arguments passed on to [ggplot2::discrete_scale()]
 #' @examples
+#' # Gets the scores of Mangueira from 1968 until 2018 on the Bateria criterion.
+#' # Throws some warnings to inform the user which years are absent of the data
+#' # (either from missing info or because the school didn't compete in the main league)
+#' df <- get_scores(years = 1968:2018,
+#'                  schools = "Estação primeira de Mangueira",
+#'                  criterions = "BATERIA")
+#'
+#' # Loads ggplot2 and dplyr
 #' library(ggplot2)
-#' ggplot(data=iris, aes(x=Sepal.Length, y=Sepal.Width, color=Species)) +
-#' geom_point() +
-#' scale_colour_rio_d("Mangueira")
+#' library(dplyr)
+#'
+#' # Creates a plot and applies the palette of Mangueira
+#' df |>
+#'   mutate(era = case_when(
+#'       between(year, 1968, 1984) ~ "1968-1984",
+#'       between(year, 1985, 2001) ~ "1985-2001",
+#'       between(year, 2002, 2018) ~ "2002-2018"
+#'   )) |>
+#'   ggplot(aes(x = era, y = score, color = era)) +
+#'     geom_jitter() +
+#'     scale_colour_rio_d("Mangueira")
 #' @export
-
 scale_colour_rio_d <- scale_color_rio_d
 
 #' RioPaletter palettes for plotting with ggplot2
 #'
-#' Function for using \code{RioPaletter} colors schemes in \code{ggplot2}. Use
-#' \code{\link{scale_color_rio_d}} and \code{\link{scale_fill_rio_d}} for
-#' discrete scales and \code{\link{scale_color_rio_c}} and
-#' \code{\link{scale_fill_rio_c}} for continuous scales.
+#' Function for using [RioPalettes] colors schemes in `ggplot2`. Use
+#' [scale_color_rio_d()] and [scale_fill_rio_d()] for discrete scales and
+#' [scale_color_rio_c()] and [scale_fill_rio_c()] for continuous scales.
 #'
-#' @param palette_name Name of Palette. Choices are: \code{Beija_Flor},
-#'   \code{Grande_Rio}, \code{Imperatriz_Leopoldinense}, \code{Imperio_Serrano},
-#'   \code{Mangueira}, \code{Padre_Miguel}, \code{Paraiso_Tuiuti},
-#'   \code{Portela}, \code{Salgueiro}, \code{Sao_Clemente}, \code{Tijuca},
-#'   \code{Uniao_Ilha}, \code{Vila_Isabel}, \code{Viradouro}.
+#' @param palette_name Name of Palette. Choices are: `Beija_Flor`, `Grande_Rio`,
+#'   `Imperatriz_Leopoldinense`, `Imperio_Serrano`, `Mangueira`, `Padre_Miguel`,
+#'   `Paraiso_Tuiuti`, `Portela`, `Salgueiro`, `Sao_Clemente`, `Tijuca`,
+#'   `Uniao_Ilha`, `Vila_Isabel`, `Viradouro`.
 #' @param direction Sets order of colors. Default palette is 1. If direction is
 #'   -1, palette color order is reversed
-#' @param ... Other arguments passed on to
-#'   \code{\link[ggplot2]{scale_color_gradientn}}
-#' @import ggplot2
+#' @param ... Other arguments passed on to [ggplot2::scale_color_gradientn()]
 #' @examples
+#' # Gets the scores of Salgueiro from 1968 until 2018 on the Bateria criterion.
+#' # Throws some warnings to inform the user which years are absent of the data
+#' # (either from missing info or because the school didn't compete in the main league)
+#' df <- get_scores(years = 1968:2018,
+#'                  schools = "Acadêmicos do Salgueiro",
+#'                  criterions = "BATERIA")
+#'
+#' # Loads ggplot2
 #' library(ggplot2)
-#' ggplot(data=iris, aes(x=Sepal.Length, y=Sepal.Width, color=Sepal.Length)) +
-#' geom_point() +
-#' scale_colour_rio_c("Salgueiro", direction=-1)
+#'
+#' # Creates a plot and applies the palette of Salgueiro
+#' df |>
+#'   ggplot(aes(x = year, y = score, color = score)) +
+#'     geom_point() +
+#'     scale_colour_rio_c("Salgueiro")
 #' @export
-
 scale_colour_rio_c <- scale_color_rio_c
 
 #' View all Palettes available
 #'
 #' Function for viewing all palettes available in RioPaletter.
 #'
-#' @param n Number of requested colors. If n is left blank, default palette is returned.
-#' @param colorblind_support Which type of colorblind friendliness should the returned palettes have. Default is "none".
-#' @param sequential Should palettes displayed all at once, or one at a time. Default is all at once (FALSE).
-#' @param direction Sets order of colors. Default palette is 1. If direction is -1, palette color order is reversed
-#' @param override.order Colors are picked from palette to maximize readability and aesthetics. This means
-#' that colors are not always selected in sequential order from the full palette. If override.order is set to TRUE,
-#' colors are selected in sequential order from the full palette instead. Default is FALSE.
+#' @param n Number of requested colors. If n is left blank, default palette is
+#'   returned.
+#' @param colorblind_support Which type of colorblind friendliness should the
+#'   returned palettes have. Default is "none".
+#' @param sequential Should palettes displayed all at once, or one at a time.
+#'   Default is all at once (FALSE).
+#' @param direction Sets order of colors. Default palette is 1. If direction is
+#'   -1, palette color order is reversed
+#' @param override.order Colors are picked from palette to maximize readability
+#'   and aesthetics. This means that colors are not always selected in
+#'   sequential order from the full palette. If override.order is set to TRUE,
+#'   colors are selected in sequential order from the full palette instead.
+#'   Default is FALSE.
 #' @examples
 #' # All palettes
 #' display_all(sequential = FALSE, colorblind_support = "none")
@@ -535,7 +584,7 @@ scale_colour_rio_c <- scale_color_rio_c
 #' @export
 #' @importFrom graphics rect par layout polygon
 
-display_all <- function(n, sequential = FALSE, colorblind_support = "none", direction = 1, override.order=FALSE){
+display_all <- function(n, sequential = FALSE, colorblind_support = "none", direction = 1, override.order = FALSE){
 
   `%notin%` <- Negate(`%in%`)
 

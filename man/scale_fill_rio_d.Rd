@@ -28,15 +28,16 @@ Function for using \link{RioPalettes} colors schemes in \code{ggplot2}. Use
 \code{\link[=scale_color_rio_c]{scale_color_rio_c()}} and \code{\link[=scale_fill_rio_c]{scale_fill_rio_c()}} for continuous scales.
 }
 \examples{
-# Gets the scores of Mangueira from 1968 until 2018 on the Bateria criterion.
+# Gets the scores of Grande Rio from 1968 until 2018 on the Bateria criterion.
 # Throws some warnings to inform the user which years are absent of the data
 # (either from missing info or because the school didn't compete in the main league)
 df <- get_scores(years = 1968:2018,
                  schools = "Acadêmicos do Grande Rio",
                  criterions = "BATERIA")
 
-# Loads ggplot2
+# Loads ggplot2 and dplyr
 library(ggplot2)
+library(dplyr)
 
 # Creates a plot and applies the palette of Grande Rio
 df |>

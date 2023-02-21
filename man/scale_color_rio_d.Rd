@@ -35,8 +35,9 @@ df <- get_scores(years = 1968:2018,
                  schools = "Estação primeira de Mangueira",
                  criterions = "BATERIA")
 
-# Loads ggplot2
+# Loads ggplot2 and dplyr
 library(ggplot2)
+library(dplyr)
 
 # Creates a plot and applies the palette of Mangueira
 df |>

@@ -7,27 +7,35 @@
 scale_fill_rio_c(palette_name, direction = 1, ...)
 }
 \arguments{
-\item{palette_name}{Name of Palette. Choices are: \code{Beija_Flor},
-\code{Grande_Rio}, \code{Imperatriz_Leopoldinense}, \code{Imperio_Serrano},
-\code{Mangueira}, \code{Padre_Miguel}, \code{Paraiso_Tuiuti},
-\code{Portela}, \code{Salgueiro}, \code{Sao_Clemente}, \code{Tijuca},
+\item{palette_name}{Name of Palette. Choices are: \code{Beija_Flor}, \code{Grande_Rio},
+\code{Imperatriz_Leopoldinense}, \code{Imperio_Serrano}, \code{Mangueira}, \code{Padre_Miguel},
+\code{Paraiso_Tuiuti}, \code{Portela}, \code{Salgueiro}, \code{Sao_Clemente}, \code{Tijuca},
 \code{Uniao_Ilha}, \code{Vila_Isabel}, \code{Viradouro}.}
 
 \item{direction}{Sets order of colors. Default palette is 1. If direction is
 -1, palette color order is reversed}
 
-\item{...}{Other arguments passed on to
-\code{\link[ggplot2]{scale_color_gradientn}}}
+\item{...}{Other arguments passed on to \code{\link[ggplot2:scale_gradient]{ggplot2::scale_fill_gradientn()}}}
 }
 \description{
-Function for using \code{RioPaletter} colors schemes in \code{ggplot2}. Use
-\code{\link{scale_color_rio_d}} and \code{\link{scale_fill_rio_d}} for
-discrete scales and \code{\link{scale_color_rio_c}} and
-\code{\link{scale_fill_rio_c}} for continuous scales.
+Function for using \link{RioPalettes} colors schemes in \code{ggplot2}. Use
+\code{\link[=scale_color_rio_d]{scale_color_rio_d()}} and \code{\link[=scale_fill_rio_d]{scale_fill_rio_d()}} for discrete scales and
+\code{\link[=scale_color_rio_c]{scale_color_rio_c()}} and \code{\link[=scale_fill_rio_c]{scale_fill_rio_c()}} for continuous scales.
 }
 \examples{
+# Gets the scores of União da Ilha from 1968 until 2018 on the Bateria criterion.
+# Throws some warnings to inform the user which years are absent of the data
+# (either from missing info or because the school didn't compete in the main league)
+df <- get_scores(years = 1968:2018,
+                 schools = "União da Ilha do Governador",
+                 criterions = "BATERIA")
+
+# Loads ggplot2
 library(ggplot2)
-ggplot(data=iris, aes(x=Sepal.Length, y=Sepal.Width, fill=Sepal.Length)) +
-geom_violin() +
-scale_fill_rio_c("Uniao_Ilha", direction=-1)
+
+# Creates a plot and applies the palette of União da Ilha
+df |>
+  ggplot(aes(x = year, y = score, fill = score)) +
+    geom_point(color = "black", shape = 21, size = 2) +
+    scale_fill_rio_c("Uniao_Ilha")
 }

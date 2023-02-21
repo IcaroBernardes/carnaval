@@ -11,6 +11,9 @@ colorblind_friendly(palette_name, type = "all")
 \code{Imperatriz_Leopoldinense}, \code{Imperio_Serrano}, \code{Mangueira}, \code{Padre_Miguel},
 \code{Paraiso_Tuiuti}, \code{Portela}, \code{Salgueiro}, \code{Sao_Clemente}, \code{Tijuca},
 \code{Uniao_Ilha}, \code{Vila_Isabel}, \code{Viradouro}.}
+
+\item{type}{Which kind of colorblindness to check. Deuteranopia, protanopia,
+and/or tritanopia}
 }
 \value{
 TRUE/FALSE value whether palette is colorblind-friendly
