@@ -7,10 +7,10 @@
 get_parades(years, schools = "all")
 }
 \arguments{
-\item{years}{\strong{numeric:} which years of parade to show. almost all
+\item{years}{(numeric) which years of parade to show. almost all
 years since 1932 are available.}
 
-\item{schools}{\strong{character:} which samba schools to show. Case
+\item{schools}{(character) which samba schools to show. Case
 insensitive.}
 }
 \value{

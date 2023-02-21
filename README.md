@@ -6,15 +6,16 @@
 
 [![Lifecycle:
 experimental](https://lifecycle.r-lib.org/articles/figures/lifecycle-experimental.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-
 <!-- badges: end -->
 
 Carnaval is the biggest street feast of Brazil. It happens all over the
 country in a kaleidoscope of sound and color. One of its many shapes is
-the yearly competition between Samba Schools in Rio. The `carnaval` R
-package provides easy access to both datasets on the competition and
-color palettes inspired by the carioca Samba Schools. The package
-focuses on the main league of the competition (“Grupo Especial”).
+the yearly competition between Samba Schools in Rio.
+
+The `carnaval` package provides easy access to both datasets on the
+competition and color palettes inspired by the carioca Samba Schools.
+The package focuses on the main league of the competition (“Grupo
+Especial”).
 
 Currently, all data comes from the [Galeria do
 Samba](https://galeriadosamba.com.br) portal. If you like this package,
@@ -85,10 +86,15 @@ get_scores(years = c(1968, 1970), schools = c("portela", "Estácio de Sá"))
 # Loads ggplot2
 library(ggplot2)
 
-# Creates a plot and applies manually the palette from Império Serrano
-ggplot(data = iris, aes(x = Species, y = Petal.Length, fill = Species)) +
+# Gets the scores of Império Serrano from 1968 until 2018 on the Bateria criterion.
+# Throws some warnings to inform the user which years are absent of the data
+# (either from missing info or because the school didn't compete in the main league)
+df <- get_scores(years = 1968:2018, schools = "Império Serrano", criterions = "BATERIA")
+
+# Creates a plot and applies manually the palette of Império Serrano
+ggplot(data = df, aes(x = judge_number, y = score, fill = judge_number)) +
   geom_violin() +
-  scale_fill_manual(values = rio_paletter("Imperio_Serrano", 3))
+  scale_fill_manual(values = rio_paletter("Imperio_Serrano", 5))
 ```
 
 ![](man/figures/ex02-1.png)<!-- -->
@@ -232,3 +238,11 @@ ggplot(data = iris, aes(x = Species, y = Petal.Length, fill = Species)) +
 <br clear="both"/><br>
 
 - Friendly towards **deuteranopia**, **protanopia** and **tritanopia**
+
+## Credits
+
+This package was created by [Ícaro
+Bernardes](https://twitter.com/IcaroBSC).
+
+The hex logo was created by [Bruno
+Mioto](https://twitter.com/BrunoHMioto).

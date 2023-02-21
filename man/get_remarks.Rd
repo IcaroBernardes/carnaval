@@ -7,7 +7,7 @@
 get_remarks(years)
 }
 \arguments{
-\item{years}{\strong{numeric:} which years of remarks to show. almost all
+\item{years}{(numeric) which years of remarks to show. almost all
 years since 1968 are available.}
 }
 \value{

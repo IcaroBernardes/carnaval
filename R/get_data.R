@@ -3,11 +3,11 @@
 #' `get_scores()` returns a tibble of scores of samba schools. It can be
 #' filtered by `year`, `school` and/or `criterion`
 #'
-#' @param years \strong{numeric:} which years of parade to show. almost all
+#' @param years (numeric) which years of parade to show. almost all
 #'   years since 1968 are available.
-#' @param schools \strong{character:} which samba schools to show. Case
+#' @param schools (character) which samba schools to show. Case
 #'   insensitive.
-#' @param criterions \strong{character:} which evaluation criteria to show. Case
+#' @param criterions (character) which evaluation criteria to show. Case
 #'   insensitive.
 #'
 #' @returns A tibble. Its columns are `school` (samba school name), `year`
@@ -77,7 +77,7 @@ get_scores <- function(years, schools = "all", criterions = "all") {
 #' each year competition. They may explain such things as: changes in the rules,
 #' substitution of judges or absence of demotion of schools.
 #'
-#' @param years \strong{numeric:} which years of remarks to show. almost all
+#' @param years (numeric) which years of remarks to show. almost all
 #'   years since 1968 are available.
 #'
 #' @returns A tibble. Its columns are `info` (remarks) and `year` (parade year).
@@ -118,9 +118,9 @@ get_remarks <- function(years) {
 #' `get_parades()` returns a tibble of total scores of samba schools. It can be
 #' filtered by `year` and/or `school`
 #'
-#' @param years \strong{numeric:} which years of parade to show. almost all
+#' @param years (numeric) which years of parade to show. almost all
 #'   years since 1932 are available.
-#' @param schools \strong{character:} which samba schools to show. Case
+#' @param schools (character) which samba schools to show. Case
 #'   insensitive.
 #'
 #' @returns A tibble. Its columns are `school` (samba school name), `year`

@@ -7,10 +7,9 @@
 colorblind_friendly(palette_name, type = "all")
 }
 \arguments{
-\item{palette_name}{Name of Palette. Choices are: \code{Beija_Flor},
-\code{Grande_Rio}, \code{Imperatriz_Leopoldinense}, \code{Imperio_Serrano},
-\code{Mangueira}, \code{Padre_Miguel}, \code{Paraiso_Tuiuti},
-\code{Portela}, \code{Salgueiro}, \code{Sao_Clemente}, \code{Tijuca},
+\item{palette_name}{Name of Palette. Choices are: \code{Beija_Flor}, \code{Grande_Rio},
+\code{Imperatriz_Leopoldinense}, \code{Imperio_Serrano}, \code{Mangueira}, \code{Padre_Miguel},
+\code{Paraiso_Tuiuti}, \code{Portela}, \code{Salgueiro}, \code{Sao_Clemente}, \code{Tijuca},
 \code{Uniao_Ilha}, \code{Vila_Isabel}, \code{Viradouro}.}
 }
 \value{
