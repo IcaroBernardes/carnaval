@@ -45,7 +45,7 @@ df |>
       between(year, 1991, 2004) ~ "1991-2004",
       between(year, 2005, 2018) ~ "2005-2018"
   )) |>
-  ggplot(aes(x = era, y = score, color = era)) +
+  ggplot(aes(x = era, y = score, fill = era)) +
     geom_violin() +
     scale_fill_rio_d("Grande_Rio")
 }

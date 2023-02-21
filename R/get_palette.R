@@ -358,7 +358,7 @@ scale_color_rio_d <- function(palette_name, direction = 1, override.order = FALS
 #'       between(year, 1991, 2004) ~ "1991-2004",
 #'       between(year, 2005, 2018) ~ "2005-2018"
 #'   )) |>
-#'   ggplot(aes(x = era, y = score, color = era)) +
+#'   ggplot(aes(x = era, y = score, fill = era)) +
 #'     geom_violin() +
 #'     scale_fill_rio_d("Grande_Rio")
 #' @export
